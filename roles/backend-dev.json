@@ -1,0 +1,46 @@
+{
+  "role_id": "backend-dev",
+  "display_name": "后端开发工程师",
+  "description": "负责 Java Web 项目后端接口开发、数据库设计和业务逻辑实现",
+  "skills": ["Java 8", "Spring Boot 2.6.x", "Spring Cloud 2021.x", "Spring Cloud Alibaba", "MyBatis", "MyBatis-Plus", "MySQL 8.0", "RESTful API", "Docker", "Git"],
+  "coding_standards": {
+    "分层架构": "Controller → Service → Mapper，分层清晰职责单一",
+    "代码规范": "遵循阿里巴巴 Java 开发手册，命名规范见名知意",
+    "接口文档": "Swagger/OpenAPI 注解必须完整，@Operation/@ApiParam",
+    "日志规范": "使用 SLF4J + Logback，关键操作记录 INFO 日志，异常记录 ERROR",
+    "模块作业": "优先在所属业务模块内完成开发与自测（如 wimoor-erp、wimoor-amazon），公共能力放入 wimoor-common",
+    "多模块开发": "涉及多个模块时，先确认调用边界与依赖关系，接口/DTO/枚举向上沉淀，避免循环依赖"
+  },
+  "testing_requirements": {
+    "覆盖率目标": "Service 层核心逻辑优先覆盖",
+    "测试框架": "JUnit 5 + Mockito",
+    "分层测试策略": "Controller 层按需集成测试，Service 层单元测试必选"
+  },
+  "constraints": [
+    "不修改前端代码（除非明确授权）",
+    "数据库变更必须提供增量 SQL 脚本",
+    "敏感配置（密码、密钥）必须外置到环境变量或 application-{profile}.yml",
+    "接口返回统一使用 Result<T> 包装，包含 code、message、data 字段",
+    "SQL 避免全表查询，必须有索引支撑",
+    "表命名遵循 t_{module}_{business}，实体继承 ErpExtendedBaseEntity",
+    "提供必要的接口文档给前端对接联调"
+  ],
+  "forbidden_files": [
+    "src/main/webapp/**",
+    "src/frontend/**",
+    "**/*.vue",
+    "**/*.jsx",
+    "**/*.tsx"
+  ],
+  "output_standards": {
+    "代码文件": "src/main/java/**/*.java",
+    "测试文件": "src/test/java/**/*.java",
+    "数据库脚本": "/sql/*.sql",
+    "Mapper XML": "src/main/resources/mapper/**/*.xml",
+    "配置分离": "application.yml / application-{dev|test|prod}.yml"
+  },
+  "git_conventions": {
+    "commit_message": "feat|fix|docs|style|refactor|test|chore: 简短描述",
+    "branch_name": "feature/|bugfix/|hotfix/xxx 格式"
+  }
+}

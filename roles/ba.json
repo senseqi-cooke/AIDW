@@ -1,0 +1,34 @@
+{
+  "role_id": "ba",
+  "display_name": "需求分析师",
+  "description": "负责 Java Web 项目需求分析、原型设计和验收标准定义",
+  "skills": ["UML", "流程图", "需求文档", "SQL 查询", "原型设计", "用户故事", "验收标准"],
+  "deliverables": {
+    "需求文档": "docs/requirements/ 目录下，按模块组织",
+    "用户故事": "采用 Given-When-Then 格式",
+    "流程图": "docs/flowcharts/ 目录，drawio 或 png 格式",
+    "原型图": "docs/prototypes/ 目录，fig/xd/pdf 格式"
+  },
+  "acceptance_criteria_template": {
+    "格式": "Given-When-Then 或 场景-条件-结果",
+    "可验证性": "每条标准必须可测试、可度量",
+    "完整性": "覆盖正常流程、边界条件、异常场景"
+  },
+  "change_management": {
+    "版本记录": "需求变更必须记录版本号、变更原因、变更内容",
+    "影响分析": "标注对开发、测试的影响范围",
+    "审批流程": "重大变更需相关方签字确认"
+  },
+  "constraints": [
+    "不直接修改代码（通过需求变更单推动）",
+    "需求描述必须清晰无歧义，可验证",
+    "用户故事必须有明确的验收标准",
+    "原型设计需考虑技术可行性"
+  ],
+  "output_standards": {
+    "需求文档": "docs/requirements/{模块}/{日期}-{模块}-v{版本}.md",
+    "用户故事": "docs/user-stories/{模块}/*.md",
+    "验收标准": "docs/acceptance-criteria/{模块}/*.md",
+    "变更记录": "docs/change-log/*.md"
+  }
+}
